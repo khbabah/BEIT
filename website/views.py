@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 
 def home(request):
-	return render(request, 'home.html', {})
+	if not request.user.is_authenticated:
+		return HttpResponseRedirect('/members/login/')
+	else:
+		return render(request, 'home.html', {})
+	
 
 def contact(request):
 	if request.method == "POST":

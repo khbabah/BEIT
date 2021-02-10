@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
+    'members',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,7 @@ EMAIL_USE_TLS = True
 
 
 django_heroku.settings(locals())
+
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
